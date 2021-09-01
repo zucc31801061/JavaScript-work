@@ -1,0 +1,15 @@
+<p>描述：</p>
+<p id="myp"></p>
+<p>最近一次提交：</p>
+<p id="mydate"></p>
+<script>
+	fetch("https://api.github.com/repos/zucc31801061/31801061subway", {
+		method: "GET",
+	}).then(function(res) {
+		console.log(res);
+		return res.json()
+	}).then(function(json) {
+		document.getElementById("myp").innerHTML = json.description;
+		document.getElementById("mydate").innerHTML = json.pushed_at;
+	})
+</script>
