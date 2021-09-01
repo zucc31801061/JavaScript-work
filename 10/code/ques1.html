@@ -1,0 +1,26 @@
+<p style="font-size: 10px;">🎈</p>
+<script>
+	// Your code here
+	let p = document.querySelector("p");
+	let fontsize = 15;
+	p.style.fontSize = fontsize + "px";
+	
+	function addFontSize(event) {
+		if (event.key == "ArrowUp") {
+			fontsize *= 1.1;
+			p.style.fontSize = fontsize + "px";
+			if (fontsize > 100) {
+				p.textContent = "💥";
+				document.body.removeEventListener("keydown", addFontSize);
+			}
+			event.preventDefault();
+		} else if (event.key == "ArrowDown") {
+			fontsize *= 0.9;
+			if (fontsize > 10) {
+				p.style.fontSize = fontsize + "px";
+			}
+			event.preventDefault();
+		}
+	}
+	document.body.addEventListener("keydown", addFontSize);
+</script>
